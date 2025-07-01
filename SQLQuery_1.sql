@@ -1,0 +1,22 @@
+-- Drop the table if it already
+IF OBJECT_ID('PRODUCTS', 'U') IS NOT NULL
+    DROP TABLE PRODUCTS;
+GO
+
+CREATE TABLE PRODUCTS (
+    PRODUCTID INT PRIMARY KEY IDENTITY(1,1),
+    PRODUCTNAME NVARCHAR(100) NOT NULL,
+    PRICE DECIMAL(10, 2) NOT NULL,
+    STOCK INT NOT NULL
+);
+GO
+
+INSERT INTO PRODUCTS (PRODUCTNAME, PRICE, STOCK) VALUES
+('Laptop Pro', 1200.50, 50),
+('Wireless Mouse', 25.00, 200),
+('Mechanical Keyboard', 150.75, 75);
+GO
+
+-- Optional: Verify the data was inserted correctly
+SELECT * FROM PRODUCTS;
+GO
